@@ -62,18 +62,20 @@ const getQuestions = () => {
     const question = document.querySelector('.question-container');
     // Creamos el boton de submit para que se envien los datos
     const btnSubmit = document.createElement('button');
-    btnSubmit.className = "btn-submit";
+    btnSubmit.className = "btn-submit btn btn-success w-100";
     btnSubmit.textContent = "Ver resultados"
     preguntas.map((pregunta, i) => {
-
-        // Esta etiqueta servira para almacenar cada pregunta 
+        const div = document.createElement('div');
+        div.className = 'div';
+       
+        // Crearemos un b para guardar el titulo de la pregunta 
+        const b = document.createElement('b');
+        b.textContent = pregunta.question;
+        div.append(b);
+        pregunta.options.map((option, j) => {
+             // Esta etiqueta servira para almacenar cada pregunta 
         const formCheck = document.createElement('div');
         formCheck.className = 'form-check';
-        // Crearemos un h1 para guardar el titulo de la pregunta 
-        const h1 = document.createElement('h1');
-        h1.textContent = pregunta.question;
-        formCheck.append(h1);
-        pregunta.options.map((option, j) => {
             // Crearemos un input para almacenar las opciones
             const input = document.createElement('input');
             input.className = 'form-check-input';
@@ -86,8 +88,9 @@ const getQuestions = () => {
             label.className = 'form-check-label';
             formCheck.append(input);
             formCheck.append(label);
+            div.append(formCheck)
         })
-        question.append(formCheck)
+        question.append(div)
 
     })
     question.append(btnSubmit)
@@ -116,15 +119,19 @@ const result = (valor) => {
     /*Esta funcion permitira hacer la validacion para saber que Cuadrante predomina la persona*/
     const result = document.querySelector('.result');
     const questionContainer = document.querySelector('.question-container');
+    result.classList = 'result alert alert-primary text-center';
     if (valor >= 0 && valor <= 6) {
-        result.textContent = 'Cuadrante predominante A (Lógico-matemático)'
+        result.textContent = 'Resultado: Cuadrante predominante A (Lógico-matemático)'
     } else if (valor >= 6 && valor <= 12) {
-        result.textContent = 'Cuadrante predominante B (Organizado-Analista)'
+        result.textContent = 'Resultado: Cuadrante predominante B (Organizado-Analista)'
     } else if (valor >= 12 && valor <= 18) {
-        result.textContent = 'Cuadrante predominante C (Emocional-Sensitivo)'
+        result.textContent = 'Resultado: Cuadrante predominante C (Emocional-Sensitivo)'
     } else if (valor >= 18 && valor <= 24) {
-        result.textContent = 'Cuadrante predominante D (Intuitivo-Imaginativo)'
+        result.textContent = 'Resultado: Cuadrante predominante D (Intuitivo-Imaginativo)'
     }
+    document.body.scrollIntoView({
+        behavior: "smooth",
+      });
 
 }
 getQuestions();
