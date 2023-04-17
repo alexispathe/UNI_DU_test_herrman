@@ -70,7 +70,7 @@ const getQuestions = () => {
        
         // Crearemos un b para guardar el titulo de la pregunta 
         const b = document.createElement('b');
-        b.textContent = pregunta.question;
+        b.textContent = `${i+1} - ${pregunta.question}`;
         div.append(b);
         pregunta.options.map((option, j) => {
              // Esta etiqueta servira para almacenar cada pregunta 
