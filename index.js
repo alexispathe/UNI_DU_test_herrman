@@ -63,7 +63,7 @@ const getQuestions = () => {
     // Creamos el boton de submit para que se envien los datos
     const btnSubmit = document.createElement('button');
     btnSubmit.className = "btn-submit btn btn-success w-100";
-    btnSubmit.textContent = "Ver resultados"
+    btnSubmit.textContent = "Ver resultado"
     preguntas.map((pregunta, i) => {
         const div = document.createElement('div');
         div.className = 'div';
