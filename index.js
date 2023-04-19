@@ -115,19 +115,25 @@ const handleClick = (num) => {
         result(value);
     });
 }
+const createAnswer=(description)=>{
+    const result = document.querySelector('.result');
+    result.classList = 'result alert alert-primary text-center';
+    result.textContent = description;
+}
 const result = (valor) => {
     /*Esta funcion permitira hacer la validacion para saber que Cuadrante predomina la persona*/
-    const result = document.querySelector('.result');
-    const questionContainer = document.querySelector('.question-container');
-    result.classList = 'result alert alert-primary text-center';
-    if (valor >= 0 && valor <= 6) {
-        result.textContent = 'Resultado: Cuadrante predominante A (Lógico-matemático)'
+    
+   
+    if (valor > 0 && valor <= 6) {
+         createAnswer('Resultado: Cuadrante predominante A (Lógico-matemático)')
     } else if (valor >= 6 && valor <= 12) {
-        result.textContent = 'Resultado: Cuadrante predominante B (Organizado-Analista)'
+        createAnswer('Resultado: Cuadrante predominante B (Organizado-Analista)')
     } else if (valor >= 12 && valor <= 18) {
-        result.textContent = 'Resultado: Cuadrante predominante C (Emocional-Sensitivo)'
+        createAnswer('Resultado: Cuadrante predominante C (Emocional-Sensitivo)')
     } else if (valor >= 18 && valor <= 24) {
-        result.textContent = 'Resultado: Cuadrante predominante D (Intuitivo-Imaginativo)'
+        createAnswer('Resultado: Cuadrante predominante D (Intuitivo-Imaginativo)')
+    }else{
+        alert("Seleccione alguna respuesta")
     }
     document.body.scrollIntoView({
         behavior: "smooth",
